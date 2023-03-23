@@ -7,7 +7,6 @@ let arr = [
   { id: 1, title: "Başlık 1", par: "Paragraf 1" },
   { id: 2, title: "Başlık 2", par: "Paragraf 2" },
   { id: 3, title: "Başlık 3", par: "Paragraf 3" },
-  { id: 4, title: "Başlık 4", par: "Paragraf 4" },
 ];
 
 const App = () => {
@@ -15,10 +14,9 @@ const App = () => {
   const [paragraf, setParagraf] = useState("");
   const [list, setList] = useState(arr);
   const click = () => {
-    setTitle("");
+    setTitle("");   
     setParagraf("");
-    const newList = [...list, { id: list.length + 1, title: title, par: paragraf }];
-    setList(newList);
+    setList([...list, { id: list.length + 1, title: title, par: paragraf }]); // listeyi güncelle
   };
   return (
     <Container>
@@ -43,7 +41,7 @@ const App = () => {
       <Grid>
         {list.map(({ title, par }, i) => (
           <Grid.Col span={3} key={`index ${i}`}>
-            return <Card title={title} par={par} a={i} />;
+            <Card title={title} par={par} a={i} />;
           </Grid.Col>
         ))}
       </Grid>

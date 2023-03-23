@@ -40,8 +40,13 @@ const App = () => {
       <h2>Kartlar:</h2>
       <Grid>
         {list.map(({ title, par }, i) => (
-          <Grid.Col span={3} key={`index ${i}`}>
-            <Card title={title} par={par} a={i} />;
+          <Grid.Col span={4} key={`index ${i}`}>
+            <Card title={title} par={par} i={i} click={() => {
+              let copyList = [...list];
+              copyList.splice(i, 1);
+              setList(copyList);
+              console.log(i + " indexli kart silindi");
+            }} />;
           </Grid.Col>
         ))}
       </Grid>
